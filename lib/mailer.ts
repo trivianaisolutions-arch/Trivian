@@ -73,36 +73,44 @@ function table(rows: [string, string][]) {
 const quote = (text: string) =>
   `<div style="margin:18px 0 0;padding:16px 18px;background:#e9e5dc;border-left:3px solid #ff5a1f;font-size:14px;line-height:22px;white-space:pre-wrap;">${esc(text)}</div>`;
 
-/** The visitor's confirmation: thanks, what we received, what happens next. */
+/**
+ * The visitor's confirmation, written as a short personal note: plain paragraphs, no images,
+ * no buttons. Designed newsletters get sorted into Gmail's Promotions tab; a note lands in Primary.
+ */
+const SIGNER = "Ansh";
+const CLIENT_FROM = `"${SIGNER} at ${MAIL_FROM_NAME.replace(/"/g, "")}" <${FROM_ADDRESS}>`;
+// Only what the visitor actually filled in.
+const given = (l: Lead) => ROWS(l).filter(([, v]) => v && v !== "—" && v !== "Not specified");
+
+function thankYouText(l: Lead) {
+  return `Hi ${firstName(l.name)},
+
+Thanks for sending over your project brief. It's with our team now: we read every brief ourselves and will reply within 24 hours with an honest take on the approach, timeline and any questions we have.
+
+Here's what you sent, for your records:
+
+${given(l).map(([k, v]) => `${k}: ${v}`).join("\n")}
+
+${l.whatToBuild}
+
+If you think of anything else, just reply to this email. It comes straight to us.
+
+${SIGNER}
+${MAIL_FROM_NAME}${LIVE ? `\n${LIVE.replace(/^https?:\/\//, "")}` : ""}`;
+}
+
 function thankYouHtml(l: Lead) {
-  const steps = [
-    ["We read it", "Our team — not a bot — reviews your brief."],
-    ["We reply within 24 hours", "With an honest technical approach, timeline and questions."],
-    ["We plan it together", "A short call to shape scope, then a clear proposal."],
-  ];
-  return frame(
-    `<tr><td style="padding:40px 32px 8px;">
-  <p style="margin:0;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a8360a;">Brief received</p>
-  <h1 style="margin:12px 0 0;font-size:32px;line-height:36px;font-weight:800;text-transform:uppercase;letter-spacing:-0.5px;color:#141518;">Thanks, ${esc(firstName(l.name))}.<br><span style="color:#5c5b57;">We've got it.</span></h1>
-  <p style="margin:18px 0 0;font-size:15px;line-height:24px;color:#3a3b41;">Your project brief is with our engineers. Here's a copy of what you sent, so you have it on record.</p>
-</td></tr>
-<tr><td style="padding:24px 32px 8px;">${table(ROWS(l))}${quote(l.whatToBuild)}</td></tr>
-<tr><td style="padding:28px 32px 8px;">
-  <p style="margin:0 0 14px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#5c5b57;">What happens next</p>
-  ${steps
-    .map(
-      ([t, d], i) => `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 14px;"><tr>
-    <td style="width:34px;height:34px;background:${i === 1 ? "#ff5a1f" : "#141518"};color:${i === 1 ? "#0d0e10" : "#f3f0ea"};font-size:13px;font-weight:700;text-align:center;vertical-align:middle;">0${i + 1}</td>
-    <td style="padding-left:14px;font-size:14px;line-height:20px;"><strong>${t}</strong><br><span style="color:#5c5b57;">${d}</span></td></tr></table>`,
-    )
-    .join("")}
-</td></tr>
-<tr><td style="padding:16px 32px 40px;">
-  <a href="${LIVE ? `${LIVE}/case-studies` : `mailto:${INBOX}?subject=${encodeURIComponent("More about my project")}`}" style="display:inline-block;background:#ff5a1f;color:#0d0e10;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 22px;">${LIVE ? "See our work" : "Add more details"} &rarr;</a>
-  <p style="margin:18px 0 0;font-size:13px;line-height:20px;color:#5c5b57;">Thought of something else? Just reply to this email — it comes straight to us.</p>
-</td></tr>`,
-    `Thanks ${firstName(l.name)} — we've received your project brief and will reply within 24 hours.`,
-  );
+  const p = (html: string) => `<p style="margin:0 0 16px;">${html}</p>`;
+  return `<!doctype html><html><body style="margin:0;padding:24px 16px;background:#ffffff;">
+<div style="max-width:560px;font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:23px;color:#202124;">
+${p(`Hi ${esc(firstName(l.name))},`)}
+${p("Thanks for sending over your project brief. It's with our team now: we read every brief ourselves and will reply within 24 hours with an honest take on the approach, timeline and any questions we have.")}
+${p("Here's what you sent, for your records:")}
+${p(given(l).map(([k, v]) => `${esc(k)}: ${esc(v)}`).join("<br>"))}
+<div style="margin:0 0 16px;padding:2px 0 2px 14px;border-left:3px solid #dadce0;color:#3c4043;white-space:pre-wrap;">${esc(l.whatToBuild)}</div>
+${p("If you think of anything else, just reply to this email. It comes straight to us.")}
+<p style="margin:0;">${SIGNER}<br>${esc(MAIL_FROM_NAME)}${LIVE ? `<br><a href="${LIVE}" style="color:#1a73e8;">${LIVE.replace(/^https?:\/\//, "")}</a>` : ""}</p>
+</div></body></html>`;
 }
 
 function ownerHtml(l: Lead) {
@@ -137,12 +145,11 @@ export async function notifyOwners(l: Lead) {
 
 export async function thankClient(l: Lead) {
   await transport.sendMail({
-    from: FROM,
+    from: CLIENT_FROM,
     to: l.email,
     replyTo: INBOX,
-    subject: oneLine(`Thanks, ${firstName(l.name)} — we've received your project brief`),
-    text: `Thanks, ${firstName(l.name)}. We've received your brief and our team will reply within 24 hours.\n\nWhat you sent:\n\n${briefText(l)}\n\n— The Trivian AI Solutions team${LIVE ? `\n${LIVE}` : ""}`,
+    subject: oneLine(`Thanks, ${firstName(l.name)} — we've got your project brief`),
+    text: thankYouText(l),
     html: thankYouHtml(l),
-    attachments: [LOGO],
   });
 }
