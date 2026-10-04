@@ -7,10 +7,11 @@ import "lenis/dist/lenis.css";
 /**
  * Weighted wheel scrolling + smooth same-page anchor jumps.
  * Lenis honours prefers-reduced-motion itself (1:1 scroll, instant jumps).
+ * Touch screens already scroll natively, so phones skip Lenis and its per-frame loop.
  */
 export function SmoothScroll() {
   useEffect(() => {
-    const lenis = new Lenis({ autoRaf: true, lerp: 0.1 });
+    const lenis = matchMedia("(pointer: coarse)").matches ? null : new Lenis({ autoRaf: true, lerp: 0.1 });
 
     // Same-page hash links: take over before next/link (it skips defaultPrevented clicks).
     const onClick = (e: MouseEvent) => {
@@ -23,7 +24,13 @@ export function SmoothScroll() {
       if (!target) return;
       e.preventDefault();
       history.pushState(null, "", url.hash);
-      // Lenis already honours the target's scroll-margin-top (clears the fixed nav).
+      // Both honour the target's scroll-margin-top (clears the fixed nav).
+      if (!lenis) {
+        const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+        target.scrollIntoView({ behavior: smooth ? "smooth" : "auto" });
+        target.focus({ preventScroll: true });
+        return;
+      }
       lenis.scrollTo(target, {
         duration: 1.4, // fixed length, so long jumps don't crawl
         easing: (t) => (t < 0.5 ? 8 * t ** 4 : 1 - (-2 * t + 2) ** 4 / 2),
@@ -34,7 +41,7 @@ export function SmoothScroll() {
 
     return () => {
       document.removeEventListener("click", onClick, true);
-      lenis.destroy();
+      lenis?.destroy();
     };
   }, []);
 

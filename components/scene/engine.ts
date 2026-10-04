@@ -16,6 +16,7 @@ import {
   EdgesGeometry,
   Fog,
   Group,
+  HemisphereLight,
   InstancedMesh,
   LineBasicMaterial,
   LineSegments,
@@ -184,11 +185,19 @@ export function startScene(canvas: HTMLCanvasElement): () => void {
 
   const scene = new Scene();
   scene.fog = new Fog(INK, 12, 30);
-  const pmrem = new PMREMGenerator(renderer);
-  const room = new RoomEnvironment();
-  const env = pmrem.fromScene(room, 0.04).texture;
-  room.dispose();
-  scene.environment = env;
+  // Phones skip the reflection environment (the costliest part of start-up) and use plain lights.
+  const lite = coarse;
+  let pmrem: PMREMGenerator | null = null;
+  let env: ReturnType<PMREMGenerator["fromScene"]>["texture"] | null = null;
+  if (lite) {
+    scene.add(new HemisphereLight(0xfff4e8, 0x1a1b1f, 1.6));
+  } else {
+    pmrem = new PMREMGenerator(renderer);
+    const room = new RoomEnvironment();
+    env = pmrem.fromScene(room, 0.04).texture;
+    room.dispose();
+    scene.environment = env;
+  }
 
   const key = new DirectionalLight(0xfff4e8, 1.4);
   key.position.set(4, 8, 5);
@@ -200,8 +209,8 @@ export function startScene(canvas: HTMLCanvasElement): () => void {
   const gPlate = new RoundedBoxGeometry(SIZE, THICK, SIZE, 2, 0.035);
   const gEdges = new EdgesGeometry(new BoxGeometry(SIZE, THICK, SIZE));
   const gCube = new BoxGeometry(1, 1, 1);
-  const gCyl = new CylinderGeometry(0.2, 0.2, 0.26, 28);
-  const gRing = new TorusGeometry(1, 0.012, 6, 96);
+  const gCyl = new CylinderGeometry(0.2, 0.2, 0.26, lite ? 14 : 28);
+  const gRing = new TorusGeometry(1, 0.012, 6, lite ? 48 : 96);
   const gGrid = new BufferGeometry();
   {
     const v: number[] = [];
@@ -212,7 +221,7 @@ export function startScene(canvas: HTMLCanvasElement): () => void {
     }
     gGrid.setAttribute("position", new BufferAttribute(new Float32Array(v), 3));
   }
-  const mPlate = new MeshStandardMaterial({ color: 0x1a1b1f, metalness: 0.88, roughness: 0.34 });
+  const mPlate = new MeshStandardMaterial({ color: lite ? 0x2a2b30 : 0x1a1b1f, metalness: lite ? 0.35 : 0.88, roughness: lite ? 0.55 : 0.34 });
   const mGrid = new LineBasicMaterial({ color: BONE, transparent: true, opacity: 0.06 });
 
   const root = new Group();
@@ -248,9 +257,9 @@ export function startScene(canvas: HTMLCanvasElement): () => void {
     group.add(new LineSegments(gEdges, edge));
     group.add(new LineSegments(gGrid, mGrid));
     const parts = new MeshStandardMaterial({
-      color: 0x2a2b30,
-      metalness: 0.7,
-      roughness: 0.42,
+      color: lite ? 0x3a3b41 : 0x2a2b30,
+      metalness: lite ? 0.3 : 0.7,
+      roughness: lite ? 0.5 : 0.42,
       emissive: SIGNAL,
       emissiveIntensity: 0,
     });
@@ -391,6 +400,7 @@ export function startScene(canvas: HTMLCanvasElement): () => void {
     e.preventDefault();
     cancelAnimationFrame(raf);
     canvas.removeAttribute("data-ready");
+    document.documentElement.classList.remove("scene-ready");
     document.documentElement.classList.add("no-webgl");
   };
   canvas.addEventListener("webglcontextlost", onLost);
@@ -499,6 +509,7 @@ export function startScene(canvas: HTMLCanvasElement): () => void {
     if (!ready) {
       ready = true;
       canvas.setAttribute("data-ready", "");
+      document.documentElement.classList.add("scene-ready");
     }
 
     // Adaptive resolution: step DPR down if frames run long.
@@ -515,9 +526,16 @@ export function startScene(canvas: HTMLCanvasElement): () => void {
       frameTimes = 0;
     }
   };
-  raf = requestAnimationFrame(tick);
+  let disposed = false;
+  renderer
+    .compileAsync(scene, camera)
+    .catch(() => {})
+    .then(() => {
+      if (!disposed) raf = requestAnimationFrame(tick);
+    });
 
   return () => {
+    disposed = true;
     cancelAnimationFrame(raf);
     ro.disconnect();
     window.removeEventListener("pointermove", onPointer);
@@ -529,8 +547,8 @@ export function startScene(canvas: HTMLCanvasElement): () => void {
       if (Array.isArray(mat)) mat.forEach((m) => m.dispose());
       else mat?.dispose();
     });
-    env.dispose();
-    pmrem.dispose();
+    env?.dispose();
+    pmrem?.dispose();
     renderer.dispose();
   };
 }

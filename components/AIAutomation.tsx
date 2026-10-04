@@ -43,7 +43,17 @@ const fx = (on: boolean, cls: string) => (on ? cls : "");
 /** What each module visibly does. Animations run only while the module is active. */
 function Work({ i, active, done }: { i: number; active: boolean; done: boolean }) {
   const show = active || done;
-  const dim = show ? "" : "opacity-40";
+  const dim = "";
+  if (!show) {
+    // Queued: a quiet skeleton until the lead reaches this module.
+    return (
+      <div aria-hidden="true" className="space-y-2.5 pt-1">
+        <span className="block h-2.5 w-3/4 bg-ink-900/10" />
+        <span className="block h-2.5 w-1/2 bg-ink-900/10" />
+        <span className="block h-2.5 w-2/3 bg-ink-900/10" />
+      </div>
+    );
+  }
   switch (i) {
     case 0:
       return (
@@ -311,7 +321,7 @@ export function AIAutomation() {
               <span
                 key={s.field[0]}
                 className={`border px-1.5 py-0.5 transition-colors duration-500 ${
-                  i === step ? "border-signal-deep bg-signal text-ink-950" : i < step ? "border-ink-900/40 text-ink-900" : "border-ink-900/10 text-ash-600/60"
+                  i === step ? "border-signal-deep bg-signal text-ink-950" : i < step ? "border-ink-900/40 text-ink-900" : "border-dashed border-ink-900/25 text-ash-600"
                 }`}
               >
                 {s.field[0]}: {i <= step ? s.field[1] : "—"}

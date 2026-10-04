@@ -16,12 +16,12 @@ export function Footer() {
   return (
     <footer className="surface-ink relative z-10 border-t border-bone-100/10">
       <div className="shell grid gap-12 py-20 md:grid-cols-12">
-        <div className="md:col-span-5">
+        <div className="@container md:col-span-5">
           <p className="lead max-w-sm text-ash-300">
             A three-person studio engineering AI automation, websites, 3D experiences and the
             systems that connect them.
           </p>
-          <a href={`mailto:${siteConfig.contactEmail}`} className="display link-line mt-8 inline-block text-[length:var(--step-m)] normal-case">
+          <a href={`mailto:${siteConfig.contactEmail}`} className="display link-line mt-8 inline-block text-[length:min(var(--step-m),6.2cqi)] normal-case">
             {siteConfig.contactEmail}
           </a>
         </div>
@@ -64,9 +64,7 @@ export function Footer() {
       </div>
 
       <div className="shell overflow-hidden">
-        <p aria-hidden="true" className="display select-none whitespace-nowrap text-[min(15.5vw,14rem)] leading-[0.78] text-ink-800">
-          trivian.ai
-        </p>
+        <div aria-hidden="true" className="footer-mark display select-none whitespace-nowrap text-[min(15.5vw,14rem)] leading-[0.78] text-ink-800" />
       </div>
 
       <div className="shell label flex flex-col gap-3 border-t border-bone-100/10 py-6 text-ash-400 sm:flex-row sm:items-center sm:justify-between">

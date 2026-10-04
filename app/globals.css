@@ -81,6 +81,13 @@ section[id] {
   display: none;
 }
 
+.footer-mark::before {
+  content: "trivian.ai";
+}
+.ghost-n::before {
+  content: attr(data-n);
+}
+
 /* ─── Primitives ──────────────────────────────────────────────────── */
 @layer components {
   .shell {
@@ -208,8 +215,14 @@ section[id] {
 .hero-fade:focus-within {
   opacity: 1;
 }
+/* Touch devices: keep the slide + fade, skip the width change (it re-lays out text every frame). */
+@media (pointer: coarse) {
+  .hero-title {
+    font-stretch: 112%;
+  }
+}
 
-/* 3D scene canvas fades in after its first frame. Fallback art shows without WebGL. */
+/* 3D scene canvas fades in after its first frame. Until then (and without WebGL) the static drawing shows. */
 .scene-canvas {
   opacity: 0;
   transition: opacity 1.2s var(--ease-expo);
@@ -218,10 +231,10 @@ section[id] {
   opacity: 1;
 }
 .scene-fallback {
-  display: none;
+  transition: opacity 1s var(--ease-expo);
 }
-html.no-webgl .scene-fallback {
-  display: block;
+html.scene-ready .scene-fallback {
+  opacity: 0;
 }
 
 /* ─── Automation machine: each module's work (runs only while active) ── */
@@ -338,8 +351,14 @@ html.no-webgl .scene-fallback {
   font-family: var(--font-mono);
   font-size: 0.625rem;
   letter-spacing: 0.08em;
+  line-height: 1;
   color: var(--color-ash-600);
   transition: opacity var(--dur-base);
+}
+/* Thin strips (nav, footer): centred, so the tag fits on small screens. */
+.sp-tag-mid {
+  top: 50%;
+  translate: 0 -50%;
 }
 .sp-ink {
   opacity: 0;

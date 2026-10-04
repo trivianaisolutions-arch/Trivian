@@ -83,7 +83,7 @@ export default async function ServicePage({ params }: PageProps) {
               <span className="text-accent">0{index + 1} / 06</span>
               <span>{s.layer}</span>
             </p>
-            <h1 className="display mt-6 text-[length:var(--step-xl)] text-bone-50">
+            <h1 className="display mt-6 text-[length:min(var(--step-xl),10.5vw)] text-bone-50">
               {s.title}
               <span className="text-accent">.</span>
             </h1>

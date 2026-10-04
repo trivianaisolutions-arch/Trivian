@@ -55,6 +55,7 @@ export function ContactSection({ standalone = false }: { standalone?: boolean })
   const mountedAt = useRef(0);
   const pointerPick = useRef(false);
   const Heading = standalone ? "h1" : "h2";
+  const Sub = standalone ? "h2" : "h3";
 
   useEffect(() => {
     mountedAt.current = clock();
@@ -188,9 +189,9 @@ export function ContactSection({ standalone = false }: { standalone?: boolean })
             {sent ? (
               <div role="status" aria-live="polite">
                 <span aria-hidden="true" className="grid h-12 w-12 place-items-center bg-signal text-xl font-bold text-ink-950">✓</span>
-                <h3 className="display mt-6 text-[length:var(--step-l)]">
+                <Sub className="display mt-6 text-[length:var(--step-l)]">
                   Thank you{firstName ? `, ${firstName}` : ""}<span className="text-accent">.</span>
-                </h3>
+                </Sub>
                 <p className="lead mt-5 max-w-lg text-ash-600">
                   Your brief is in.{" "}
                   {sent.emailed ? (
@@ -239,9 +240,9 @@ export function ContactSection({ standalone = false }: { standalone?: boolean })
                     ))}
                   </ol>
                 </div>
-                <h3 ref={titleRef} tabIndex={-1} className="display mt-5 text-[length:var(--step-m)]">
+                <Sub ref={titleRef} tabIndex={-1} className="display mt-5 text-[length:var(--step-m)]">
                   {STEPS[step].title}
-                </h3>
+                </Sub>
 
                 {/* Spam trap: invisible to people, tempting to bots. */}
                 <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">

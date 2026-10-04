@@ -81,6 +81,7 @@ const STAGES = [
 
 export function Process({ standalone = false }: { standalone?: boolean }) {
   const Heading = standalone ? "h1" : "h2";
+  const StepHeading = standalone ? "h2" : "h3";
   const ref = useRef<HTMLElement>(null);
   const step = useSectionProgress(ref, STAGES.length);
 
@@ -154,9 +155,9 @@ export function Process({ standalone = false }: { standalone?: boolean }) {
                     >
                       {ICONS[i]}
                     </svg>
-                    <span className="display text-[clamp(3rem,2rem+3vw,5.5rem)] leading-none text-ink-900/10">0{i + 1}</span>
+                    <span aria-hidden="true" data-n={`0${i + 1}`} className="ghost-n display text-[clamp(3rem,2rem+3vw,5.5rem)] leading-none text-ink-900/10" />
                   </div>
-                  <h3 className={`display mt-5 text-[length:var(--step-m)] transition-colors duration-500 ${on ? "" : "lg:text-ash-600"}`}>{s.title}</h3>
+                  <StepHeading className={`display mt-5 text-[length:var(--step-m)] transition-colors duration-500 ${on ? "" : "lg:text-ash-600"}`}>{s.title}</StepHeading>
                   <ul aria-label={`${s.title} covers`} className="mt-3 flex flex-wrap gap-1.5">
                     {s.tasks.map((t) => (
                       <li key={t} className="label border border-ink-900/20 px-2 py-1 text-ink-900">

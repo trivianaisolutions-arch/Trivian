@@ -33,7 +33,7 @@ function Specimen({ stage }: { stage: number }) {
         </div>
 
         <div className="sp-block sp-z1 flex h-[9%] items-center justify-between px-[3%]">
-          <span className="sp-tag">nav</span>
+          <span className="sp-tag sp-tag-mid">nav</span>
           <span className="sp-seo label absolute -top-5 left-0 text-signal-deep">&lt;header&gt;</span>
           <span className="sp-ink h-[34%] w-[16%] bg-ink-900" />
           <span className="sp-ink flex w-[34%] justify-between">
@@ -75,7 +75,7 @@ function Specimen({ stage }: { stage: number }) {
         </div>
 
         <div className="sp-block sp-dark sp-z1 h-[8%]">
-          <span className="sp-tag">footer</span>
+          <span className="sp-tag sp-tag-mid">footer</span>
           <span className="sp-seo label absolute -top-5 left-0 text-signal-deep">&lt;footer&gt;</span>
         </div>
       </div>
@@ -151,8 +151,7 @@ export function WebDevShowcase() {
                     if (reduced) setPaused(true);
                   }}
                   aria-current={i === stage ? "step" : undefined}
-                  aria-label={`Stage ${i + 1}: ${st.stage}`}
-                  className={`label block w-full text-left transition-colors max-sm:text-[0.5625rem] ${i === stage ? "text-ink-900" : "text-ash-600 hover:text-ink-900"}`}
+                  className={`label block w-full text-left transition-colors max-sm:text-[0.6875rem] ${i === stage ? "text-ink-900" : "text-ash-600 hover:text-ink-900"}`}
                 >
                   <span aria-hidden="true" className="relative mb-3 block h-0.5 overflow-hidden bg-ink-900/15">
                     {i < stage && <span className="absolute inset-0 bg-ink-900" />}
@@ -169,7 +168,7 @@ export function WebDevShowcase() {
                       ))}
                   </span>
                   <span className="text-accent">0{i + 1}</span>
-                  <span className="mt-1 block truncate max-sm:hidden">{st.stage}</span>
+                  <span className="mt-1 block truncate max-sm:sr-only">{st.stage}</span>
                 </button>
               </li>
             ))}
