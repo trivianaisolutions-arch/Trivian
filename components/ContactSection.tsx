@@ -13,7 +13,7 @@ const clock = () => Date.now(); // read only in effects and event handlers
 const field =
   "mt-2 w-full border border-ink-900/20 bg-bone-50 px-4 py-3 text-base text-ink-900 placeholder:text-ash-600/70 transition-colors hover:border-ink-900/40 focus:border-ink-900 aria-[invalid=true]:border-signal-deep";
 const NEXT_UP = [
-  ["We read it", "A founder reviews your brief — not a bot."],
+  ["We read it", "Our team reviews your brief — not a bot."],
   ["We reply within 24 hours", "With an honest approach, timeline and questions."],
   ["We plan it together", "A short call, then a clear proposal."],
 ];
@@ -165,7 +165,7 @@ export function ContactSection({ standalone = false }: { standalone?: boolean })
               you&apos;re building<span className="text-accent">.</span>
             </Heading>
             <p className="mt-6 max-w-md text-[0.9375rem] leading-relaxed text-ash-600">
-              Three quick steps, about two minutes. A founder reads every brief and replies within
+              Three quick steps, about two minutes. Our team reads every brief and replies within
               24 hours.
             </p>
 
@@ -203,7 +203,7 @@ export function ContactSection({ standalone = false }: { standalone?: boolean })
                       We&apos;ll reply to <strong className="text-ink-900">{sent.email}</strong>.
                     </>
                   )}{" "}
-                  A founder will get back to you within 24 hours.
+                  Our team will get back to you within 24 hours.
                 </p>
                 <dl className="mt-8 grid gap-x-8 gap-y-3 border-t border-ink-900/15 pt-6 text-sm sm:grid-cols-3">
                   {[

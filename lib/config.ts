@@ -19,7 +19,7 @@ export interface StudioConfig {
 }
 
 export const siteConfig: StudioConfig = {
-  name: "trivian.ai",
+  name: "Trivian AI Solutions",
   tagline: "We build digital systems that think.",
   supportingTagline:
     "AI automation, AI agents, intelligent websites, 3D experiences and search-ready architecture — engineered as one connected system by a three-person studio.",

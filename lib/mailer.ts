@@ -47,14 +47,14 @@ function frame(inner: string, preheader: string) {
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#f3f0ea;border:1px solid #d8d3c8;font-family:Helvetica,Arial,sans-serif;color:#141518;">
 <tr><td style="background:#0d0e10;padding:22px 32px;">
   <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-    <td><img src="cid:trivian-logo" width="40" height="40" alt="trivian.ai" style="display:block;border:0;"></td>
-    <td style="padding-left:12px;color:#f3f0ea;font-size:15px;font-weight:800;letter-spacing:1px;text-transform:uppercase;">trivian.ai</td>
+    <td><img src="cid:trivian-logo" width="40" height="40" alt="Trivian AI Solutions" style="display:block;border:0;"></td>
+    <td style="padding-left:12px;color:#f3f0ea;font-size:15px;font-weight:800;letter-spacing:1px;text-transform:uppercase;">Trivian AI Solutions</td>
   </tr></table>
 </td></tr>
 <tr><td style="height:4px;background:#ff5a1f;line-height:4px;font-size:0;">&nbsp;</td></tr>
 ${inner}
 <tr><td style="padding:22px 32px;border-top:1px solid #d8d3c8;font-size:12px;line-height:18px;color:#5c5b57;">
-  trivian.ai — AI engineering, automation, websites, 3D and search.<br>
+  Trivian AI Solutions — AI engineering, automation, websites, 3D and search.<br>
   <a href="mailto:${INBOX}" style="color:#a8360a;">${INBOX}</a>${LIVE ? ` · <a href="${LIVE}" style="color:#a8360a;">${LIVE.replace(/^https?:\/\//, "")}</a>` : ""}
 </td></tr>
 </table></td></tr></table></body></html>`;
@@ -76,7 +76,7 @@ const quote = (text: string) =>
 /** The visitor's confirmation: thanks, what we received, what happens next. */
 function thankYouHtml(l: Lead) {
   const steps = [
-    ["We read it", "A founder — not a bot — reviews your brief."],
+    ["We read it", "Our team — not a bot — reviews your brief."],
     ["We reply within 24 hours", "With an honest technical approach, timeline and questions."],
     ["We plan it together", "A short call to shape scope, then a clear proposal."],
   ];
@@ -141,7 +141,7 @@ export async function thankClient(l: Lead) {
     to: l.email,
     replyTo: INBOX,
     subject: oneLine(`Thanks, ${firstName(l.name)} — we've received your project brief`),
-    text: `Thanks, ${firstName(l.name)}. We've received your brief and a founder will reply within 24 hours.\n\nWhat you sent:\n\n${briefText(l)}\n\n— The trivian.ai team${LIVE ? `\n${LIVE}` : ""}`,
+    text: `Thanks, ${firstName(l.name)}. We've received your brief and our team will reply within 24 hours.\n\nWhat you sent:\n\n${briefText(l)}\n\n— The Trivian AI Solutions team${LIVE ? `\n${LIVE}` : ""}`,
     html: thankYouHtml(l),
     attachments: [LOGO],
   });

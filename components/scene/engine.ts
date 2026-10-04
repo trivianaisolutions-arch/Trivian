@@ -175,7 +175,8 @@ export function startScene(canvas: HTMLCanvasElement): () => void {
     return () => {};
   }
 
-  const maxDpr = Math.min(window.devicePixelRatio || 1, coarse ? 1.5 : 2);
+  // 1.5x is visually the same behind fog and text, and ~45% fewer pixels than 2x on Retina screens.
+  const maxDpr = Math.min(window.devicePixelRatio || 1, 1.5);
   let dpr = maxDpr;
   renderer.setPixelRatio(dpr);
   renderer.setClearColor(INK, 1);
@@ -517,7 +518,7 @@ export function startScene(canvas: HTMLCanvasElement): () => void {
     frames++;
     if (frames === 90) {
       const avg = frameTimes / frames;
-      if (avg > 1 / 40 && dpr > 1) {
+      if (avg > 1 / 50 && dpr > 1) {
         dpr = Math.max(1, dpr - 0.25);
         renderer.setPixelRatio(dpr);
         resize();

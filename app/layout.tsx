@@ -20,11 +20,11 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const title = "trivian.ai — AI Engineering & Digital Systems Studio";
+const title = "Trivian AI Solutions — AI Engineering & Digital Systems Studio";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: title, template: "%s — trivian.ai" },
+  title: { default: title, template: "%s — Trivian AI Solutions" },
   description: siteConfig.supportingTagline,
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name }],

@@ -8,7 +8,7 @@ import { JsonLd, breadcrumbs } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Selected Work",
   description:
-    "Production projects designed, built and launched by trivian.ai — member platforms, media platforms and e-commerce, with transparent technical breakdowns.",
+    "Production projects designed, built and launched by Trivian AI Solutions — member platforms, media platforms and e-commerce, with transparent technical breakdowns.",
   alternates: { canonical: "/case-studies" },
 };
 

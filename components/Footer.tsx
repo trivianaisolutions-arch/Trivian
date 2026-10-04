@@ -64,7 +64,7 @@ export function Footer() {
       </div>
 
       <div className="shell overflow-hidden">
-        <div aria-hidden="true" className="footer-mark display select-none whitespace-nowrap text-[min(15.5vw,14rem)] leading-[0.78] text-ink-800" />
+        <div aria-hidden="true" className="footer-mark display select-none whitespace-nowrap text-[min(7vw,6.5rem)] leading-[0.78] text-ink-800" />
       </div>
 
       <div className="shell label flex flex-col gap-3 border-t border-bone-100/10 py-6 text-ash-400 sm:flex-row sm:items-center sm:justify-between">

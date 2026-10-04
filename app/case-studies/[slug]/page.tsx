@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${study.title} — Case Study`,
     description: study.shortDescription,
     alternates: { canonical: `/case-studies/${study.slug}` },
-    openGraph: { title: `${study.title} — Case Study | trivian.ai`, description: study.shortDescription },
+    openGraph: { title: `${study.title} — Case Study | Trivian AI Solutions`, description: study.shortDescription },
   };
 }
 

@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description: "How trivian.ai handles information on this website.",
+  description: "How Trivian AI Solutions handles information on this website.",
   alternates: { canonical: "/privacy" },
 };
 

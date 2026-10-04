@@ -1,4 +1,4 @@
-# Image prompts — trivian.ai (for ChatGPT)
+# Image prompts — Trivian AI Solutions (for ChatGPT)
 
 **Goal:** each image shows how the service works, step by step, so a visitor understands it at a glance without reading.
 

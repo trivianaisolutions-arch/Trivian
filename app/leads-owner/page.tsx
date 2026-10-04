@@ -22,7 +22,7 @@ export default async function LeadsOwnerPage() {
     <div className="surface-ink min-h-screen">
       <header className="border-b border-bone-100/10">
         <div className="shell flex h-16 items-center justify-between">
-          <Link href="/" aria-label="trivian.ai home">
+          <Link href="/" aria-label="Trivian AI Solutions home">
             <Logo />
           </Link>
           {owner && (

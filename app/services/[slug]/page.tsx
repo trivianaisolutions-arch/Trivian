@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: s.title,
     description: s.summary,
     alternates: { canonical: `/services/${s.slug}` },
-    openGraph: { title: `${s.title} | trivian.ai`, description: s.summary },
+    openGraph: { title: `${s.title} | Trivian AI Solutions`, description: s.summary },
   };
 }
 

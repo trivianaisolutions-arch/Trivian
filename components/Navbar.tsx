@@ -18,7 +18,7 @@ export function Logo() {
   return (
     <span className="flex items-center gap-2.5">
       <Image src={mark} alt="" width={36} height={36} loading="eager" className="h-9 w-9" />
-      <span className="display text-[0.95rem] tracking-[-0.02em]">{siteConfig.name}</span>
+      <span className="display whitespace-nowrap text-[min(0.95rem,4vw)] tracking-[-0.02em]">{siteConfig.name}</span>
     </span>
   );
 }

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "trivian.ai — We build digital systems that think.";
+export const alt = "Trivian AI Solutions — We build digital systems that think.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -39,7 +39,7 @@ export default async function Image() {
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", flex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 26, letterSpacing: 4, color: "#e9e5dc" }}>
             <img src={mark} width={64} height={64} alt="" />
-            TRIVIAN.AI
+            TRIVIAN AI SOLUTIONS
           </div>
           <div style={{ display: "flex", flexDirection: "column", fontSize: 84, fontWeight: 700, lineHeight: 0.95, letterSpacing: -3 }}>
             <span>WE BUILD</span>

@@ -82,7 +82,7 @@ section[id] {
 }
 
 .footer-mark::before {
-  content: "trivian.ai";
+  content: "Trivian AI Solutions";
 }
 .ghost-n::before {
   content: attr(data-n);
@@ -195,9 +195,13 @@ section[id] {
 }
 
 /* ─── Hero: typography driven by scroll progress (--p, 0→1) ──────── */
+/* Width squeezes with a GPU transform, not font-stretch: changing the font's width re-shapes the text every frame. */
 .hero-title {
-  font-stretch: calc(112% - 40% * var(--p, 0));
+  font-stretch: 112%;
+  scale: calc(1 - 0.32 * var(--p, 0)) 1;
+  transform-origin: left bottom;
   opacity: clamp(0, calc(1.9 - var(--p, 0) * 2), 1);
+  will-change: scale, opacity;
 }
 .hero-line-1 {
   transform: translate3d(calc(var(--p, 0) * -12vw), 0, 0);
@@ -214,12 +218,6 @@ section[id] {
 }
 .hero-fade:focus-within {
   opacity: 1;
-}
-/* Touch devices: keep the slide + fade, skip the width change (it re-lays out text every frame). */
-@media (pointer: coarse) {
-  .hero-title {
-    font-stretch: 112%;
-  }
 }
 
 /* 3D scene canvas fades in after its first frame. Until then (and without WebGL) the static drawing shows. */
@@ -793,7 +791,7 @@ html.has-cursor select {
   .hero-line-3,
   .hero-fade {
     transform: none;
-    font-stretch: 112%;
+    scale: none;
     opacity: 1;
   }
   .flow-line,
