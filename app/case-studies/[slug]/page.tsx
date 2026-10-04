@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const study = getCaseStudyBySlug(slug);
   if (!study) return { title: "Case study not found" };
-  return pageMeta(`${study.title} — Case Study`, study.shortDescription, `/case-studies/${study.slug}`);
+  return pageMeta(`${study.title} — Case Study`, study.metaDescription, `/case-studies/${study.slug}`);
 }
 
 export default async function CaseStudyDetailPage({ params }: PageProps) {

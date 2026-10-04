@@ -10,6 +10,8 @@ export interface CaseStudy {
   tagline: string;
   category: string;
   shortDescription: string;
+  /** Search-result snippet: under 160 characters so Google shows it whole. */
+  metaDescription: string;
   problem: string;
   solution: string;
   features: string[];
@@ -40,6 +42,8 @@ export const caseStudies: CaseStudy[] = [
     featured: true,
     shortDescription:
       "A high-performance web platform featuring a live member directory, interactive 3D executive passport generator, regional chapter directory, events schedule, and real-time community engagement.",
+    metaDescription:
+      "Case study: the Business Security Alliance member platform, with a live member directory, 3D executive passport generator, chapters and events.",
     problem:
       "Security leaders, CISOs, and enterprise risk practitioners across physical, electronic, and cybersecurity needed a dedicated, zero-noise professional network to discover verified peers, exchange field telemetry, and coordinate across global hubs (Washington DC, London, Frankfurt) without generic social media noise.",
     solution:
@@ -78,6 +82,8 @@ export const caseStudies: CaseStudy[] = [
     featured: true,
     shortDescription:
       "A broadcast media web application featuring an interactive live audio visualizer equalizer, dynamic episode player, YouTube stream integration, and host intelligence profiles.",
+    metaDescription:
+      "Case study: the Security Leader Podcast media platform, with a live audio visualizer, episode player, YouTube streams and host profiles.",
     problem:
       "The Business Security Alliance needed a broadcast-grade media platform to showcase unfiltered conversations with global CISOs and security pioneers, requiring responsive audio visualizer experiences, YouTube video streaming, and detailed guest spotlighting.",
     solution:
@@ -116,6 +122,8 @@ export const caseStudies: CaseStudy[] = [
     featured: true,
     shortDescription:
       "A high-performance brand, media, and subscription platform for artisanal specialty coffee, connecting coffee champions, brewing podcasts, and roast ordering with a Render API backend.",
+    metaDescription:
+      "Case study: the Brew With Aditya specialty coffee platform, combining brand, brewing podcasts, subscriptions and roast ordering.",
     problem:
       "An artisanal specialty coffee brand needed a unified web presence to sell roasted single-origin coffees, showcase champion interviews and brewing podcasts, and provide instant mobile app integration for loyal customers.",
     solution:
