@@ -3,14 +3,13 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Process } from "@/components/Process";
 import { NextStep } from "@/components/NextStep";
-import { JsonLd, breadcrumbs } from "@/lib/seo";
+import { JsonLd, breadcrumbs, pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Process",
-  description:
-    "Discover, architect, design, build, integrate, optimize, launch — how Trivian AI Solutions takes an idea to production software.",
-  alternates: { canonical: "/process" },
-};
+export const metadata: Metadata = pageMeta(
+  "Process",
+  "Discover, architect, design, build, integrate, optimize, launch — how Trivian AI Solutions takes an idea to production software.",
+  "/process",
+);
 
 export default function ProcessPage() {
   return (

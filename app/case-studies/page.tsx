@@ -3,14 +3,13 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CaseStudyIndex } from "@/components/CaseStudyIndex";
-import { JsonLd, breadcrumbs } from "@/lib/seo";
+import { JsonLd, breadcrumbs, pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Selected Work",
-  description:
-    "Production projects designed, built and launched by Trivian AI Solutions — member platforms, media platforms and e-commerce, with transparent technical breakdowns.",
-  alternates: { canonical: "/case-studies" },
-};
+export const metadata: Metadata = pageMeta(
+  "Selected Work",
+  "Production projects designed, built and launched by Trivian AI Solutions — member platforms, media platforms and e-commerce, with transparent technical breakdowns.",
+  "/case-studies",
+);
 
 export default function CaseStudiesPage() {
   return (

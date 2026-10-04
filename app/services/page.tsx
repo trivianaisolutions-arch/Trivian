@@ -5,14 +5,13 @@ import { Footer } from "@/components/Footer";
 import { NextStep } from "@/components/NextStep";
 import { SERVICES } from "@/lib/services";
 import { siteConfig } from "@/lib/config";
-import { JsonLd, breadcrumbs } from "@/lib/seo";
+import { JsonLd, breadcrumbs, pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "AI automation, AI agents, website engineering, 3D experiences, search intelligence and digital systems — engineered as one connected system.",
-  alternates: { canonical: "/services" },
-};
+export const metadata: Metadata = pageMeta(
+  "Services",
+  "AI automation, AI agents, website engineering, 3D experiences, search intelligence and digital systems — engineered as one connected system.",
+  "/services",
+);
 
 export default function ServicesPage() {
   return (

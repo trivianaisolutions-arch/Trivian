@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/lib/config";
 
-export const metadata: Metadata = {
-  title: "Privacy",
-  description: "How Trivian AI Solutions handles information on this website.",
-  alternates: { canonical: "/privacy" },
-};
+export const metadata: Metadata = pageMeta(
+  "Privacy",
+  "How Trivian AI Solutions handles information on this website.",
+  "/privacy",
+);
 
 // Describes what this site actually does today. Update it if analytics, cookies or new data uses are added.
 export default function PrivacyPage() {

@@ -6,7 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { NextStep } from "@/components/NextStep";
 import { caseStudies, getCaseStudyBySlug, hostOf } from "@/lib/case-studies";
-import { JsonLd, breadcrumbs } from "@/lib/seo";
+import { JsonLd, breadcrumbs, pageMeta } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -20,12 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const study = getCaseStudyBySlug(slug);
   if (!study) return { title: "Case study not found" };
-  return {
-    title: `${study.title} — Case Study`,
-    description: study.shortDescription,
-    alternates: { canonical: `/case-studies/${study.slug}` },
-    openGraph: { title: `${study.title} — Case Study | Trivian AI Solutions`, description: study.shortDescription },
-  };
+  return pageMeta(`${study.title} — Case Study`, study.shortDescription, `/case-studies/${study.slug}`);
 }
 
 export default async function CaseStudyDetailPage({ params }: PageProps) {

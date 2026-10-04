@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ContactSection } from "@/components/ContactSection";
-import { JsonLd, breadcrumbs } from "@/lib/seo";
+import { JsonLd, breadcrumbs, pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Start a Project",
-  description:
-    "Talk directly with our three-person engineering team about your AI automation, website, web application, SaaS, 3D or search project.",
-  alternates: { canonical: "/contact" },
-};
+export const metadata: Metadata = pageMeta(
+  "Start a Project",
+  "Talk directly with our three-person engineering team about your AI automation, website, web application, SaaS, 3D or search project.",
+  "/contact",
+);
 
 const faqs = [
   {

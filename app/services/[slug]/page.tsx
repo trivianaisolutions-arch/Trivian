@@ -13,7 +13,7 @@ import { TechStack } from "@/components/TechStack";
 import { SystemScene } from "@/components/scene/SystemScene";
 import { BRIEFS, SERVICES, getService } from "@/lib/services";
 import { getCaseStudyBySlug, hostOf } from "@/lib/case-studies";
-import { JsonLd, SITE_URL, breadcrumbs } from "@/lib/seo";
+import { JsonLd, SITE_URL, breadcrumbs, pageMeta } from "@/lib/seo";
 
 // Each service reuses the homepage demo that shows it working. `dark` = the demo's own surface.
 const DEMOS: Record<string, { Demo: () => React.ReactNode; dark: boolean }> = {
@@ -41,12 +41,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const s = getService((await params).slug);
   if (!s) return { title: "Service not found" };
-  return {
-    title: s.title,
-    description: s.summary,
-    alternates: { canonical: `/services/${s.slug}` },
-    openGraph: { title: `${s.title} | Trivian AI Solutions`, description: s.summary },
-  };
+  return pageMeta(s.title, s.summary, `/services/${s.slug}`);
 }
 
 export default async function ServicePage({ params }: PageProps) {
