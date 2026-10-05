@@ -8,6 +8,7 @@ const navigation = [
   { label: "Services", href: "/services" },
   { label: "Process", href: "/process" },
   { label: "Studio", href: "/about" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
   { label: "Privacy", href: "/privacy" },
 ];

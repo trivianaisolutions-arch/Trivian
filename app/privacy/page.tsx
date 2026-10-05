@@ -31,8 +31,9 @@ export default function PrivacyPage() {
             <p>
               When you send a brief, we receive your name, email address, the project details you
               enter and, if you add them, your phone number, company and website. The brief is
-              stored on our server and emailed to our team, and we email you a confirmation copy.
-              These emails are delivered through Google (Gmail).
+              stored in our database and emailed to our team, and we email you a confirmation copy.
+              The website is hosted by Vercel, briefs are stored with Upstash, and these emails are
+              sent through Resend.
             </p>
           </section>
           <section>
