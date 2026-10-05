@@ -59,6 +59,7 @@ const organization = {
       "@id": `${SITE_URL}/#organization`,
       name: siteConfig.name,
       url: SITE_URL,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/brand/trivian-mark.png`, width: 256, height: 256 },
       email: siteConfig.contactEmail,
       description: siteConfig.positioningStatement,
       knowsAbout: [
