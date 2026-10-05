@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { NextStep } from "@/components/NextStep";
+import { Faq } from "@/components/Faq";
+import { SERVICE_FAQS } from "@/lib/faqs";
 import { AIAutomation } from "@/components/AIAutomation";
 import { CallingAgent } from "@/components/CallingAgent";
 import { WebDevShowcase } from "@/components/WebDevShowcase";
@@ -156,6 +158,20 @@ export default async function ServicePage({ params }: PageProps) {
               </ol>
             </div>
           </section>
+        )}
+
+        {SERVICE_FAQS[s.slug] && (
+          <Faq
+            faqs={SERVICE_FAQS[s.slug]}
+            tone="bone"
+            title={
+              <>
+                Questions about
+                <br />
+                <span className="text-ash-600">{s.title}.</span>
+              </>
+            }
+          />
         )}
 
         <NextStep next={{ href: `/services/${next.slug}`, title: next.title }} type={s.projectType} />
