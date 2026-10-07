@@ -1,3 +1,6 @@
+/** The one official address. Canonical tags, sitemap, email links and the host redirect all use it. */
+export const SITE_URL = "https://trivianaisolutions.in";
+
 export interface Founder {
   name: string;
   role: string;

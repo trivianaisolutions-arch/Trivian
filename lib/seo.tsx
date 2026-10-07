@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { siteConfig } from "./config";
+import { SITE_URL, siteConfig } from "./config";
 
-export const SITE_URL = "https://trivianaisolutions.in";
+export { SITE_URL };
 
 const SHARE_IMAGE = [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${siteConfig.name} — We build digital systems that think.` }];
 

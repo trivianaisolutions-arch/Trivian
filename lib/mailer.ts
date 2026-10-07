@@ -1,6 +1,7 @@
 import "server-only";
 import nodemailer from "nodemailer";
 import { briefText } from "./brief";
+import { SITE_URL } from "./config";
 import { EMAIL_LOGO_JPEG_BASE64 } from "./email-logo";
 import type { Lead } from "./leads";
 
@@ -16,7 +17,7 @@ const smtp = env.SMTP_HOST
 const FROM_ADDRESS = env.MAIL_FROM_ADDRESS || env.GMAIL_USER || "";
 const INBOX = env.MAIL_REPLY_TO || env.GMAIL_USER || FROM_ADDRESS; // where replies should land
 // Links to the website only once it's live — links to a domain that doesn't resolve are a strong spam signal.
-const LIVE = (process.env.SITE_LIVE_URL ?? "").replace(/\/$/, "");
+const LIVE = process.env.SITE_LIVE_URL ? SITE_URL : "";
 
 const transport = nodemailer.createTransport(smtp);
 
