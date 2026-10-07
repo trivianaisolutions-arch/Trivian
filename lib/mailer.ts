@@ -1,7 +1,7 @@
 import "server-only";
 import nodemailer from "nodemailer";
 import { briefText } from "./brief";
-import { SITE_URL } from "./config";
+import { SITE_URL, siteConfig } from "./config";
 import { EMAIL_LOGO_JPEG_BASE64 } from "./email-logo";
 import type { Lead } from "./leads";
 
@@ -97,7 +97,8 @@ ${l.whatToBuild}
 If you think of anything else, just reply to this email. It comes straight to us.
 
 ${SIGNER}
-${MAIL_FROM_NAME}${LIVE ? `\n${LIVE.replace(/^https?:\/\//, "")}` : ""}`;
+${MAIL_FROM_NAME}
+${siteConfig.phone}${LIVE ? `\n${LIVE.replace(/^https?:\/\//, "")}` : ""}`;
 }
 
 function thankYouHtml(l: Lead) {
@@ -110,7 +111,7 @@ ${p("Here's what you sent, for your records:")}
 ${p(given(l).map(([k, v]) => `${esc(k)}: ${esc(v)}`).join("<br>"))}
 <div style="margin:0 0 16px;padding:2px 0 2px 14px;border-left:3px solid #dadce0;color:#3c4043;white-space:pre-wrap;">${esc(l.whatToBuild)}</div>
 ${p("If you think of anything else, just reply to this email. It comes straight to us.")}
-<p style="margin:0;">${SIGNER}<br>${esc(MAIL_FROM_NAME)}${LIVE ? `<br><a href="${LIVE}" style="color:#1a73e8;">${LIVE.replace(/^https?:\/\//, "")}</a>` : ""}</p>
+<p style="margin:0;">${SIGNER}<br>${esc(MAIL_FROM_NAME)}<br><a href="${siteConfig.phoneHref}" style="color:#1a73e8;">${siteConfig.phone}</a>${LIVE ? `<br><a href="${LIVE}" style="color:#1a73e8;">${LIVE.replace(/^https?:\/\//, "")}</a>` : ""}</p>
 </div></body></html>`;
 }
 

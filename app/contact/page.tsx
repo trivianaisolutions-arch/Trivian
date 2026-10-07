@@ -8,7 +8,7 @@ import { JsonLd, breadcrumbs, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Contact Us",
-  "Tell us about your AI agent, automation or website project. Our engineers reply within 24 hours with an approach, timeline and cost.",
+  "Contact Trivian AI Solutions in Noida & Chandigarh, India — serving clients worldwide. Call +91 87074 79271 or send your brief; we reply within 24 hours.",
   "/contact",
 );
 

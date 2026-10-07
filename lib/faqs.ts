@@ -24,7 +24,7 @@ export const GENERAL_FAQS: Faq[] = [
   },
   {
     q: "Do you work with clients outside India?",
-    a: "Yes. We're a remote studio and work with clients in India and abroad, over video calls and email.",
+    a: "Yes. Our team works from Noida and Chandigarh, India, and we work with clients in every country, over video calls and email.",
   },
   {
     q: "Can you add AI or automation to our existing software?",

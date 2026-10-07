@@ -9,6 +9,7 @@ const navigation = [
   { label: "Process", href: "/process" },
   { label: "Studio", href: "/about" },
   { label: "Blog", href: "/blog" },
+  { label: "Where we work", href: "/locations" },
   { label: "Contact", href: "/contact" },
   { label: "Privacy", href: "/privacy" },
 ];
@@ -25,6 +26,12 @@ export function Footer() {
           <a href={`mailto:${siteConfig.contactEmail}`} className="display link-line mt-8 inline-block text-[length:min(var(--step-m),6.2cqi)] normal-case">
             {siteConfig.contactEmail}
           </a>
+          <a href={siteConfig.phoneHref} className="link-line mt-4 block w-fit text-lg text-bone-100">
+            {siteConfig.phone}
+          </a>
+          <p className="label mt-4 text-ash-400">
+            {siteConfig.cities.map((c) => c.city).join(" · ")}, India — clients worldwide
+          </p>
         </div>
 
         <nav aria-label="Capabilities" className="md:col-span-2 md:col-start-7">

@@ -17,6 +17,11 @@ export interface StudioConfig {
   positioningStatement: string;
   coreStatement: string;
   contactEmail: string;
+  phone: string;
+  /** tel: link form of `phone`. */
+  phoneHref: string;
+  /** Where the team works from. Clients are served worldwide. */
+  cities: { city: string; region: string }[];
   location: string;
   founders: Founder[];
 }
@@ -29,7 +34,13 @@ export const siteConfig: StudioConfig = {
   positioningStatement: "We don't just build websites. We engineer intelligent digital systems.",
   coreStatement: "You have an idea or business problem. We build the software.",
   contactEmail: "trivianaisolutions@gmail.com",
-  location: "Remote Studio • Global Delivery",
+  phone: "+91 87074 79271",
+  phoneHref: "tel:+918707479271",
+  cities: [
+    { city: "Noida", region: "Uttar Pradesh" },
+    { city: "Chandigarh", region: "Chandigarh" },
+  ],
+  location: "Noida & Chandigarh, India · Clients worldwide",
   founders: [
     {
       name: "Founder & Lead Architect",

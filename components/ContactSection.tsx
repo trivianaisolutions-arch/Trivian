@@ -387,9 +387,13 @@ export function ContactSection({ standalone = false }: { standalone?: boolean })
             )}
           </div>
           <p className="mt-5 text-sm text-ash-600">
-            Prefer email?{" "}
+            Prefer email or a call?{" "}
             <a href={`mailto:${siteConfig.contactEmail}`} className="link-line font-semibold text-ink-900">
               {siteConfig.contactEmail}
+            </a>{" "}
+            ·{" "}
+            <a href={siteConfig.phoneHref} className="link-line font-semibold text-ink-900">
+              {siteConfig.phone}
             </a>
           </p>
         </div>

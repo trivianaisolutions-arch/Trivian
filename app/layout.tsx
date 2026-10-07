@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 const title = "Trivian AI Solutions — AI Agent & Automation Company";
 const description =
-  "Trivian AI Solutions builds AI agents, AI calling agents, business automation and fast websites for companies in India and worldwide. Talk to our engineers.";
+  "Trivian AI Solutions builds AI agents, AI calling agents, business automation and fast websites. Based in Noida & Chandigarh, India — serving clients worldwide.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -63,6 +63,10 @@ const organization = {
       url: SITE_URL,
       logo: { "@type": "ImageObject", url: `${SITE_URL}/brand/trivian-mark.png`, width: 256, height: 256 },
       email: siteConfig.contactEmail,
+      telephone: siteConfig.phone,
+      address: siteConfig.cities.map((c) => ({ "@type": "PostalAddress", addressLocality: c.city, addressRegion: c.region, addressCountry: "IN" })),
+      areaServed: "Worldwide",
+      contactPoint: { "@type": "ContactPoint", telephone: siteConfig.phone, email: siteConfig.contactEmail, contactType: "sales", areaServed: "Worldwide", availableLanguage: "English" },
       description: siteConfig.positioningStatement,
       knowsAbout: [
         "AI automation",
