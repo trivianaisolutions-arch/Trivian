@@ -8,8 +8,8 @@ import { siteConfig } from "@/lib/config";
 import { JsonLd, breadcrumbs, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
-  "Services",
-  "AI automation, AI agents, website engineering, 3D experiences, search intelligence and digital systems — engineered as one connected system.",
+  "AI & Web Development Services",
+  "AI agents, AI calling agents, business automation, website and web app development, 3D websites, technical SEO and SaaS development — by Trivian AI Solutions.",
   "/services",
 );
 

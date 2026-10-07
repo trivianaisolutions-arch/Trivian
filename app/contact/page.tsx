@@ -7,8 +7,8 @@ import { GENERAL_FAQS } from "@/lib/faqs";
 import { JsonLd, breadcrumbs, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
-  "Start a Project",
-  "Talk directly with our three-person engineering team about your AI automation, website, web application, SaaS, 3D or search project.",
+  "Contact Us",
+  "Tell us about your AI agent, automation or website project. Our engineers reply within 24 hours with an approach, timeline and cost.",
   "/contact",
 );
 

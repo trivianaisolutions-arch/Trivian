@@ -8,6 +8,8 @@ export type Service = {
   /** Preselects the contact form's project type (must match a ContactSection option). */
   projectType: string;
   summary: string;
+  /** What Google shows: the search phrase people use (title ≤37 chars + " — Trivian AI Solutions") and a ≤160-char snippet. */
+  seo: { title: string; description: string };
   capabilities: string[];
   for: string;
   /** Ids into BRIEFS. */
@@ -26,6 +28,11 @@ export const SERVICES: Service[] = [
     projectType: "Automation",
     summary:
       "Background pipelines that take repetitive work off your team — documents read, records updated, next steps triggered.",
+    seo: {
+      title: "AI Automation Services",
+      description:
+        "AI automation services that take repetitive work off your team — invoice and document processing, CRM updates and integrations between the tools you use.",
+    },
     capabilities: [
       "PDF document and invoice extraction into structured tables",
       "CRM updates and stage triggers",
@@ -46,6 +53,11 @@ export const SERVICES: Service[] = [
     projectType: "AI Agents",
     summary:
       "Agents that understand a request and act on it — answering, qualifying, booking and routing on your site, inside your product or on the phone.",
+    seo: {
+      title: "AI Agents & AI Calling Agents",
+      description:
+        "AI agent development: voice calling agents, AI receptionists, lead qualification and support agents that answer from your own documents and pricing.",
+    },
     capabilities: [
       "Inbound and outbound voice calling agents",
       "AI receptionist for FAQs, lead capture and routing",
@@ -65,6 +77,11 @@ export const SERVICES: Service[] = [
     focus: "3",
     projectType: "Website",
     summary: "Websites and web applications engineered around how your business actually works — not around a theme.",
+    seo: {
+      title: "Website & Web App Development",
+      description:
+        "Website and web app development with Next.js — fast, mobile-friendly business websites, dashboards and portals built around how your business works.",
+    },
     capabilities: [
       "Business websites and landing pages",
       "Custom web applications, dashboards and portals",
@@ -88,6 +105,11 @@ export const SERVICES: Service[] = [
     focus: "twist",
     projectType: "3D Experience",
     summary: "Interactive 3D and WebGL that explains a product or a system — rendered in the browser and built to stay fast.",
+    seo: {
+      title: "3D Website Development (WebGL)",
+      description:
+        "Interactive 3D websites built with Three.js and WebGL — product configurators, scroll-driven 3D storytelling and launch pages that stay fast on phones.",
+    },
     capabilities: [
       "Real-time WebGL scenes with Three.js",
       "Scroll-driven 3D storytelling",
@@ -110,6 +132,11 @@ export const SERVICES: Service[] = [
     focus: "5",
     projectType: "Search / SEO",
     summary: "Sites built so search engines and AI answer engines can read, understand and recommend them.",
+    seo: {
+      title: "Technical SEO & Search Intelligence",
+      description:
+        "Technical SEO and structured data so Google and AI answer engines can read, understand and recommend your site — sitemaps, schema and Core Web Vitals.",
+    },
     capabilities: [
       "Technical SEO: sitemaps, canonicals, crawlability",
       "Semantic HTML and Schema.org structured data",
@@ -132,6 +159,11 @@ export const SERVICES: Service[] = [
     focus: "all",
     projectType: "SaaS",
     summary: "SaaS platforms, backends and apps that connect everything above into one product.",
+    seo: {
+      title: "SaaS & Custom Software Development",
+      description:
+        "SaaS and custom software development — multi-tenant platforms with Stripe billing, PostgreSQL, APIs, authentication and a documented handoff.",
+    },
     capabilities: [
       "Multi-tenant SaaS with Stripe billing and team seats",
       "PostgreSQL schemas, REST and GraphQL APIs",

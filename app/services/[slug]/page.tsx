@@ -43,7 +43,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const s = getService((await params).slug);
   if (!s) return { title: "Service not found" };
-  return pageMeta(s.title, s.summary, `/services/${s.slug}`);
+  return pageMeta(s.seo.title, s.seo.description, `/services/${s.slug}`);
 }
 
 export default async function ServicePage({ params }: PageProps) {

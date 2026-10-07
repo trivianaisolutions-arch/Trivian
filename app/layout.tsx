@@ -20,19 +20,21 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const title = "Trivian AI Solutions — AI Engineering & Digital Systems Studio";
+const title = "Trivian AI Solutions — AI Agent & Automation Company";
+const description =
+  "Trivian AI Solutions builds AI agents, AI calling agents, business automation and fast websites for companies in India and worldwide. Talk to our engineers.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: title, template: "%s — Trivian AI Solutions" },
-  description: siteConfig.supportingTagline,
+  description,
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   alternates: { canonical: "/" },
   openGraph: {
     title,
-    description: siteConfig.positioningStatement,
+    description,
     url: SITE_URL,
     siteName: siteConfig.name,
     locale: "en_US",
@@ -41,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title,
-    description: siteConfig.positioningStatement,
+    description,
   },
   robots: { index: true, follow: true },
 };

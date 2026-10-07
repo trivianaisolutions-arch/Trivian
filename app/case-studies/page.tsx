@@ -6,7 +6,7 @@ import { CaseStudyIndex } from "@/components/CaseStudyIndex";
 import { JsonLd, breadcrumbs, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
-  "Selected Work",
+  "Our Work & Case Studies",
   "Production projects designed, built and launched by Trivian AI Solutions — member platforms, media platforms and e-commerce, with transparent technical breakdowns.",
   "/case-studies",
 );
