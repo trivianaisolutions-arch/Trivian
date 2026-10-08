@@ -24,6 +24,7 @@ export function AboutUs({ standalone = false }: { standalone?: boolean }) {
           </Heading>
           <div className="lead space-y-5 text-ash-600 lg:col-span-4 lg:col-start-9 lg:self-end">
             <p className="text-ink-900">
+              Trivian AI Solutions is an AI engineering company based in Noida and Chandigarh, India.
               We combine AI engineering, automation, web development, 3D, design and search into one
               practice — so the system you get is built as one thing, not stitched together.
             </p>

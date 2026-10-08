@@ -20,8 +20,8 @@ export function Footer() {
       <div className="shell grid gap-12 py-20 md:grid-cols-12">
         <div className="@container md:col-span-5">
           <p className="lead max-w-sm text-ash-300">
-            A three-person studio engineering AI automation, websites, 3D experiences and the
-            systems that connect them.
+            Trivian AI Solutions is an AI agent, automation and web development company in Noida
+            and Chandigarh, India — a three-person team building for clients worldwide.
           </p>
           <a href={`mailto:${siteConfig.contactEmail}`} className="display link-line mt-8 inline-block text-[length:min(var(--step-m),6.2cqi)] normal-case">
             {siteConfig.contactEmail}
