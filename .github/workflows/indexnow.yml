@@ -1,0 +1,10 @@
+name: IndexNow
+# After each successful production deploy on Vercel, tell Bing and other IndexNow engines about every page.
+on: deployment_status
+jobs:
+  ping:
+    if: github.event.deployment_status.state == 'success' && startsWith(github.event.deployment.environment, 'Production')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node scripts/indexnow.mjs
