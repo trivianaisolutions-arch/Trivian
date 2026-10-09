@@ -26,7 +26,10 @@ export function Footer() {
           <a href={`mailto:${siteConfig.contactEmail}`} className="display link-line mt-8 inline-block text-[length:min(var(--step-m),6.2cqi)] normal-case">
             {siteConfig.contactEmail}
           </a>
-          <a href={siteConfig.phoneHref} className="link-line mt-4 block w-fit text-lg text-bone-100">
+          <a href={`mailto:${siteConfig.altEmail}`} className="link-line mt-4 block w-fit text-lg text-bone-100">
+            {siteConfig.altEmail}
+          </a>
+          <a href={siteConfig.phoneHref} className="link-line mt-2 block w-fit text-lg text-bone-100">
             {siteConfig.phone}
           </a>
           <p className="label mt-4 text-ash-400">

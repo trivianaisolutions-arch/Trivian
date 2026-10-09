@@ -17,6 +17,8 @@ export interface StudioConfig {
   positioningStatement: string;
   coreStatement: string;
   contactEmail: string;
+  /** Second address shown in the footer. */
+  altEmail: string;
   phone: string;
   /** tel: link form of `phone`. */
   phoneHref: string;
@@ -34,6 +36,7 @@ export const siteConfig: StudioConfig = {
   positioningStatement: "We don't just build websites. We engineer intelligent digital systems.",
   coreStatement: "You have an idea or business problem. We build the software.",
   contactEmail: "hello@trivianaisolutions.in",
+  altEmail: "trivianaisolutions@gmail.com",
   phone: "+91 87074 79271",
   phoneHref: "tel:+918707479271",
   cities: [
