@@ -33,7 +33,7 @@ export const siteConfig: StudioConfig = {
     "AI automation, AI agents, intelligent websites, 3D experiences and search-ready architecture — engineered as one connected system by a three-person studio.",
   positioningStatement: "We don't just build websites. We engineer intelligent digital systems.",
   coreStatement: "You have an idea or business problem. We build the software.",
-  contactEmail: "trivianaisolutions@gmail.com",
+  contactEmail: "hello@trivianaisolutions.in",
   phone: "+91 87074 79271",
   phoneHref: "tel:+918707479271",
   cities: [

@@ -15,7 +15,7 @@ const smtp = env.SMTP_HOST
   ? { host: env.SMTP_HOST, port: SMTP_PORT, secure: SMTP_PORT === 465, auth: { user: env.SMTP_USER ?? "", pass: env.SMTP_PASS ?? "" } }
   : { service: "gmail", auth: { user: env.GMAIL_USER ?? "", pass: env.GMAIL_APP_PASSWORD ?? "" } };
 const FROM_ADDRESS = env.MAIL_FROM_ADDRESS || env.GMAIL_USER || "";
-const INBOX = env.MAIL_REPLY_TO || env.GMAIL_USER || FROM_ADDRESS; // where replies should land
+const INBOX = siteConfig.contactEmail; // where client replies land (the Zoho inbox)
 // Links to the website only once it's live — links to a domain that doesn't resolve are a strong spam signal.
 const LIVE = process.env.SITE_LIVE_URL ? SITE_URL : "";
 
