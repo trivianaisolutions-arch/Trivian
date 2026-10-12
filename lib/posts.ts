@@ -16,6 +16,120 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    slug: "ai-calling-agent-vs-call-centre",
+    title: "AI calling agent vs call centre: which is right for you?",
+    description:
+      "An honest comparison of AI calling agents and human call centres — availability, busy periods, complex calls and cost — and why most businesses need both.",
+    date: "2026-10-12",
+    body: [
+      "When the phone rings more than your team can handle, there are two classic answers: more people — an in-house team or an outsourced call centre — or software. AI calling agents have made the second option far more capable. But they don't replace people for every call, and choosing the wrong one for the wrong calls costs you customers.",
+      { h2: "The difference at a glance" },
+      {
+        table: [
+          ["", "AI calling agent", "Call centre (people)"],
+          ["Availability", "Every hour of every day", "Set shifts; nights and weekends cost more"],
+          ["Busy periods", "Many calls at the same time", "Callers queue, or you hire for the peak"],
+          ["Repetitive calls", "The same accurate answer every time", "Quality varies with training and tiredness"],
+          ["Complex or emotional calls", "Limited — it should hand over", "People are much better at these"],
+          ["Changes", "Update the instructions once", "Retrain every team member"],
+          ["How you pay", "Mostly for usage — the calls it handles", "Mostly per person or per hour"],
+          ["Setup", "Write instructions, connect your tools", "Hire, train and manage people"],
+        ],
+      },
+      { h2: "When an AI calling agent fits best" },
+      {
+        list: [
+          "**Most calls repeat** — bookings, opening hours, prices you publish, order or appointment status.",
+          "**Calls arrive outside working hours**, and missed calls mean lost customers.",
+          "**Your volume jumps** — after a campaign, in a season, or at the start of each day.",
+          "**Speed matters**, like calling back a new lead while they're still interested.",
+        ],
+      },
+      { h2: "When people are the better choice" },
+      {
+        list: [
+          "**Calls need judgement** — complaints, negotiations, or a decision that isn't in any script.",
+          "**Callers are upset or vulnerable** and need empathy more than speed.",
+          "**The conversation is sensitive** — health, money or legal questions that need a qualified person.",
+          "**Relationships are the product**, such as account managers who know each client.",
+        ],
+      },
+      { h2: "Why most businesses need both" },
+      "The strongest setup is usually a combination: the AI agent takes the first line and the repetitive calls, and your people take everything else. Three common ways to start:",
+      {
+        list: [
+          "**After hours** — the AI agent answers when the office is closed and leaves your team a summary for the morning.",
+          "**Overflow** — it picks up when every line is busy, so nobody hears an endless ring.",
+          "**One call type** — it handles bookings, for example, while your team handles the rest.",
+        ],
+      },
+      "In every case, a good agent passes the caller to a person whenever it should, with a written summary so the caller never has to repeat themselves.",
+      { h2: "Questions to answer before you choose" },
+      {
+        ordered: true,
+        list: [
+          "**What share of your calls are repetitive?** Listen to a week of calls and sort them.",
+          "**When do calls come in?** Look for nights, weekends and peaks you can't cover today.",
+          "**Which systems does a call touch?** Calendar, CRM, order system — the agent will need access to them.",
+          "**Which rules apply?** Telling callers they're talking to AI, recording calls, and your country's rules for automated calls.",
+        ],
+      },
+      "We build AI calling agents connected to the tools a business already uses. [See our AI calling agent service](/services/ai-calling-agent), read [what an AI calling agent is](/blog/what-is-an-ai-calling-agent), or [tell us about your calls](/contact).",
+    ],
+  },
+  {
+    slug: "ai-receptionist-for-clinics",
+    title: "AI receptionist for clinics: how it works",
+    description:
+      "How an AI receptionist answers a clinic's calls, books and moves appointments, sends reminders and hands over to staff — plus what it must never do.",
+    date: "2026-10-12",
+    body: [
+      "A clinic's phone rarely stops. The same person at the front desk is checking patients in, answering questions and picking up call after call — and every call that goes unanswered can be an appointment that goes elsewhere. An AI receptionist answers those calls in a natural voice, takes care of the routine ones, and leaves your staff free for the patients in front of them.",
+      { h2: "What an AI receptionist can handle" },
+      {
+        list: [
+          "**Booking, moving and cancelling appointments**, straight into your calendar or booking system.",
+          "**Everyday questions** — opening hours, location and parking, which doctor is in on which days, the consultation fees you publish, what to bring.",
+          "**Reminders and confirmations** before appointments, which can help reduce missed visits.",
+          "**After-hours calls**, with a message and a short summary waiting for your team in the morning.",
+          "**Routing** — sending the caller to the right department or person.",
+        ],
+      },
+      { h2: "What it must never do" },
+      "This matters more in a clinic than almost anywhere else. An AI receptionist is for admin, not medicine. It should be set up so that it:",
+      {
+        list: [
+          "**never gives medical advice**, diagnoses or interprets symptoms and reports;",
+          "**tells callers with an emergency** to contact emergency services right away and transfers urgent calls to staff;",
+          "**hands over** anything clinical, any complaint and anything it isn't sure about.",
+        ],
+      },
+      { h2: "How a typical call goes" },
+      "Say a patient calls at 9 pm to move tomorrow's appointment. The receptionist greets them and says it's an AI assistant. It confirms who they are with details the clinic chooses, finds the booking, offers the free slots later in the week, moves the appointment and sends a confirmation. The whole call takes a minute or two, and your staff see the change in the morning without having picked up the phone.",
+      { h2: "Connecting it to your clinic" },
+      {
+        list: [
+          "**Your calendar or practice software**, so it can see free slots and book them. Many systems allow this through an integration; others work with a shared calendar.",
+          "**Your clinic's information** — doctors, timings, services, published fees and policies — kept up to date so its answers stay right.",
+          "**Your existing phone number**, by forwarding calls after hours or when the line is busy.",
+        ],
+      },
+      { h2: "Patient privacy" },
+      "Health information is sensitive. Collect only what a booking needs, limit who can see call records, tell callers if calls are recorded, and follow the data-protection rules that apply to you — such as India's Digital Personal Data Protection Act, or HIPAA for clinics in the US. Check the details with your compliance adviser before going live.",
+      { h2: "How to start" },
+      {
+        ordered: true,
+        list: [
+          "**Start with one call type** — appointment bookings are the usual first choice.",
+          "**Write down how your best receptionist handles it**: the questions, the answers and when to pass the call on.",
+          "**Connect the calendar** and test it with your own staff first.",
+          "**Go live after hours**, read the call transcripts for the first weeks, then extend it to busy daytime hours.",
+        ],
+      },
+      "We build AI receptionists and calling agents connected to the tools a clinic already uses. [See our AI calling agent service](/services/ai-calling-agent), compare [AI calling agents and call centres](/blog/ai-calling-agent-vs-call-centre), or [tell us about your clinic](/contact).",
+    ],
+  },
+  {
     slug: "how-long-does-it-take-to-build-a-saas-mvp",
     title: "How long does it take to build a SaaS MVP?",
     description:
@@ -254,7 +368,7 @@ export const POSTS: Post[] = [
       "Once one call type works reliably, adding the next one is much faster.",
       { h2: "Is it right for your business?" },
       "A calling agent makes sense when your phone rings more than your team can answer, when calls come in outside working hours, or when the same questions take up hours every week. If most of your calls need careful human judgement, start smaller — with after-hours message taking, say — and grow from there.",
-      "We design and build calling agents connected to the tools a business already uses. [See how we build AI agents](/services/ai-agents), or [tell us about your calls](/contact) and we'll suggest where an agent would help first.",
+      "We design and build calling agents connected to the tools a business already uses. [See our AI calling agent service](/services/ai-calling-agent), compare [AI calling agents and call centres](/blog/ai-calling-agent-vs-call-centre), or [tell us about your calls](/contact) and we'll suggest where an agent would help first.",
     ],
   },
 ];

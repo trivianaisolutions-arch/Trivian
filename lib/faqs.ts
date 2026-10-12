@@ -151,3 +151,31 @@ export const SERVICE_FAQS: Record<string, Faq[]> = {
     },
   ],
 };
+
+/** /services/ai-calling-agent. Kept separate from SERVICE_FAQS: that page isn't one of the six services. */
+export const CALLING_AGENT_FAQS: Faq[] = [
+  {
+    q: "What is an AI calling agent?",
+    a: "Software that answers or makes phone calls and holds a natural, two-way conversation. It understands what the caller says, replies in a natural voice, and acts on the call — booking an appointment, saving the caller's details or passing the call to your team.",
+  },
+  {
+    q: "Is an AI calling agent the same as an AI receptionist or AI voice agent?",
+    a: "They're names for the same idea. “AI receptionist” usually means answering incoming calls; “AI calling agent” or “AI voice agent” also covers outbound calls such as reminders and lead follow-ups.",
+  },
+  {
+    q: "Will callers know they're talking to AI?",
+    a: "They should. We set agents up to say at the start of the call that the caller is speaking with an AI assistant. It builds trust, and in many places the rules for automated calls expect it.",
+  },
+  {
+    q: "What happens if the caller needs a person?",
+    a: "The agent hands the call to your team, or takes a message when nobody is available, and passes on what it has already learned so the caller doesn't have to repeat themselves.",
+  },
+  {
+    q: "Can it book appointments directly into our calendar?",
+    a: "Yes. With access to your calendar or booking system, it checks free slots, books, moves or cancels appointments and can send a confirmation.",
+  },
+  {
+    q: "Does it work with our existing phone number?",
+    a: "Usually, yes. Calls can be forwarded from your current number to the agent — for example after hours or when your line is busy — so customers keep calling the number they already know.",
+  },
+];

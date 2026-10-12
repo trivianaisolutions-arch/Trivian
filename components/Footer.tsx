@@ -45,6 +45,9 @@ export function Footer() {
                 <Link href={`/services/${s.slug}`} className="link-line">{s.title}</Link>
               </li>
             ))}
+            <li>
+              <Link href="/services/ai-calling-agent" className="link-line">AI Calling Agent</Link>
+            </li>
           </ul>
         </nav>
 

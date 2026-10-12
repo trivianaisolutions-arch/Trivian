@@ -54,7 +54,7 @@ export const SERVICES: Service[] = [
     summary:
       "Agents that understand a request and act on it — answering, qualifying, booking and routing on your site, inside your product or on the phone.",
     seo: {
-      title: "AI Agents & AI Calling Agents",
+      title: "AI Agent Development",
       description:
         "AI agent development: voice calling agents, AI receptionists, lead qualification and support agents that answer from your own documents and pricing.",
     },

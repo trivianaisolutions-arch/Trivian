@@ -90,6 +90,11 @@ export default async function ServicePage({ params }: PageProps) {
               <Link href={`/contact?type=${encodeURIComponent(s.projectType)}`} className="btn btn-signal">
                 Start a project <span aria-hidden="true" className="btn-arrow">→</span>
               </Link>
+              {s.slug === "ai-agents" && (
+                <Link href="/services/ai-calling-agent" className="btn btn-line">
+                  AI calling agents
+                </Link>
+              )}
               <Link href="/services" className="btn btn-line">
                 All services
               </Link>

@@ -15,6 +15,7 @@ A three-person engineering team, registered as an MSME in India (Udyam ${siteCon
 
 ## Services
 ${SERVICES.map((s) => `- [${s.seo.title}](${SITE_URL}/services/${s.slug}): ${s.seo.description}`).join("\n")}
+- [AI Calling Agent & AI Receptionist](${SITE_URL}/services/ai-calling-agent): AI calling agents and AI receptionists that answer calls, book appointments, qualify leads and hand over to your team — for clinics, real estate and sales.
 
 ## Guides
 ${POSTS.map((p) => `- [${p.title}](${SITE_URL}/blog/${p.slug}): ${p.description}`).join("\n")}
