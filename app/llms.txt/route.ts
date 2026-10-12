@@ -11,7 +11,7 @@ export function GET() {
 
 > ${siteConfig.name} (also "Trivian AI") is an AI agent, automation and web development company based in ${cities}, India, serving clients worldwide.
 
-A three-person engineering team. Contact: ${siteConfig.contactEmail} · ${siteConfig.phone} · ${SITE_URL}/contact
+A three-person engineering team, registered as an MSME in India (Udyam ${siteConfig.udyam}). Contact: ${siteConfig.contactEmail} · ${siteConfig.phone} · ${SITE_URL}/contact
 
 ## Services
 ${SERVICES.map((s) => `- [${s.seo.title}](${SITE_URL}/services/${s.slug}): ${s.seo.description}`).join("\n")}

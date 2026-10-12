@@ -25,6 +25,10 @@ export interface StudioConfig {
   /** Where the team works from. Clients are served worldwide. */
   cities: { city: string; region: string }[];
   location: string;
+  /** Government MSME registration number (public, verifiable on udyamregistration.gov.in). */
+  udyam: string;
+  /** YYYY-MM-DD, as on the Udyam certificate. */
+  foundingDate: string;
   founders: Founder[];
 }
 
@@ -44,6 +48,8 @@ export const siteConfig: StudioConfig = {
     { city: "Chandigarh", region: "Chandigarh" },
   ],
   location: "Noida & Chandigarh, India · Clients worldwide",
+  udyam: "UDYAM-UP-28-0246205",
+  foundingDate: "2026-10-05",
   founders: [
     {
       name: "Founder & Lead Architect",

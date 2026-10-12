@@ -81,6 +81,7 @@ export function Footer() {
       <div className="shell label flex flex-col gap-3 border-t border-bone-100/10 py-6 text-ash-400 sm:flex-row sm:items-center sm:justify-between">
         <span>
           © {new Date().getFullYear()} {siteConfig.name} — {siteConfig.location}
+          <span className="mt-1 block">MSME (Udyam) registered · <span className="whitespace-nowrap">{siteConfig.udyam}</span></span>
         </span>
         <a href="#top" className="link-line w-fit">Back to top ↑</a>
       </div>

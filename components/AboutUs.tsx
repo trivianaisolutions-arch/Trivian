@@ -32,6 +32,7 @@ export function AboutUs({ standalone = false }: { standalone?: boolean }) {
               We stay small on purpose. It keeps us fast, keeps us accountable, and means the person
               you brief is the person who builds it.
             </p>
+            <p className="label text-ash-600">MSME (Udyam) registered · <span className="whitespace-nowrap">{siteConfig.udyam}</span></p>
           </div>
         </div>
 

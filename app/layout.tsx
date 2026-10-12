@@ -67,6 +67,8 @@ const organization = {
       telephone: siteConfig.phone,
       address: siteConfig.cities.map((c) => ({ "@type": "PostalAddress", addressLocality: c.city, addressRegion: c.region, addressCountry: "IN" })),
       areaServed: "Worldwide",
+      foundingDate: siteConfig.foundingDate,
+      identifier: { "@type": "PropertyValue", propertyID: "Udyam Registration Number (MSME, India)", value: siteConfig.udyam },
       contactPoint: { "@type": "ContactPoint", telephone: siteConfig.phone, email: siteConfig.contactEmail, contactType: "sales", areaServed: "Worldwide", availableLanguage: "English" },
       description: siteConfig.positioningStatement,
       knowsAbout: [
