@@ -16,6 +16,67 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    slug: "how-long-does-it-take-to-build-a-saas-mvp",
+    title: "How long does it take to build a SaaS MVP?",
+    description:
+      "What decides how long a SaaS MVP takes to build, what to include and leave out, how the work runs, and how to launch sooner without cutting corners.",
+    date: "2026-10-12",
+    body: [
+      "An MVP — minimum viable product — is the smallest version of your software that real customers can use, and pay for, to solve one real problem. Its job is to prove the idea works before you invest in everything else. So the honest answer to “how long does it take?” is: **it depends far more on what you choose to build first than on how fast anyone types.**",
+      "For a focused SaaS MVP — one core workflow, sign-in, subscriptions and an admin view — our typical build is **6 to 8 weeks**. Here's what pushes that up or down, and how to keep it short.",
+      { h2: "What decides the timeline" },
+      {
+        list: [
+          "**The number of core workflows.** One workflow done well ships fast. Three half-finished ones take longer and prove less.",
+          "**User roles and permissions.** A single type of user is simple. Admins, team members, clients and guests each add screens and rules.",
+          "**Teams and billing.** Companies with several seats, plans and invoices (for example through Stripe) need careful handling of who pays and who can do what.",
+          "**Integrations.** Every connection — a CRM, calendar, payment provider or another company's API — adds setup and testing.",
+          "**AI features.** An assistant that answers from your own data, or a step that reads documents, needs good test material and checks for wrong answers.",
+          "**Decisions on your side.** Projects slow down most when key questions — pricing, who the first users are, what “done” looks like — stay open.",
+        ],
+      },
+      { h2: "What an MVP should include — and what can wait" },
+      {
+        table: [
+          ["", "Build it now", "Leave it for later"],
+          ["Product", "The one workflow your first customers pay for", "Nice-to-have features and edge cases"],
+          ["Accounts", "Sign-up, sign-in, password reset", "Single sign-on and complex team hierarchies"],
+          ["Payments", "One or two plans with subscription billing", "Coupons, usage-based pricing, many currencies"],
+          ["Admin", "A simple view to see users and fix problems", "Full analytics dashboards"],
+          ["Design", "Clean, responsive and easy to use", "Custom illustrations and animations"],
+        ],
+      },
+      "Everything in the right column is worth building — once real customers have shown you which parts they actually want.",
+      { h2: "How the work usually runs" },
+      "Most of our projects follow the same seven steps. For an MVP they overlap and move quickly:",
+      {
+        ordered: true,
+        list: [
+          "**Discover** — agree on the problem, the first users and what success looks like.",
+          "**Architect** — plan the data, the integrations and the milestones.",
+          "**Design** — screens for the core workflow, tested on phones and desktops.",
+          "**Build** — the frontend, backend and database, in typed code.",
+          "**Integrate** — payments, email and the tools you already use.",
+          "**Optimize** — testing, accessibility and speed.",
+          "**Launch** — deploy to your domain and hand over documented code that you own.",
+        ],
+      },
+      "You'll find more detail on each step in [our process](/process).",
+      { h2: "How to launch sooner without cutting corners" },
+      {
+        list: [
+          "**Write down the one job your MVP must do.** If a feature doesn't help that job, it waits.",
+          "**Use proven building blocks** for sign-in, payments and email instead of building them from scratch.",
+          "**Decide quickly.** Name one person who can say yes or no on scope and design.",
+          "**Put it in front of real users early**, then improve it from what they actually do.",
+        ],
+      },
+      { h2: "What about cost?" },
+      "Cost follows the same factors as time: the number of workflows, roles, integrations and AI features. Rather than a one-size price, a short call about your idea gives you a clear scope, timeline and cost before any work starts.",
+      "We build SaaS platforms, backends and apps end to end. [See our SaaS & custom software development work](/services/digital-systems), read about [business tasks you can automate with AI](/blog/business-tasks-you-can-automate-with-ai), or [tell us what you want to build](/contact).",
+    ],
+  },
+  {
     slug: "ai-chatbot-vs-ai-agent",
     title: "AI chatbot vs AI agent: what's the difference?",
     description:
